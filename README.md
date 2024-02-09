@@ -1,4 +1,6 @@
-# moojoco-env
+<h1>
+  <a href="#"><img alt="MuJoCo" src="assets/banner.png" width="100%"/></a>
+</h1>
 
 **moojoco-env** provides a unified framework for implementing and interfacing with MuJoCo and MuJoCo-XLA simulation
 environments.
