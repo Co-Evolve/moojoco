@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "moojoco-env"
+version = "1.0.0"
+authors = [
+    { name = "Dries Marzougui", email = "dries.marzougui@gmail.com" },
+]
+description = "A unified framework for implementing and interfacing with MuJoCo and MuJoCo-XLA simulation environments."
+readme = { file = "README.md", content-type = "text/markdown" }
+license = { text = "MIT" }
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Natural Language :: English",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering",
+]
+requires-python = ">=3.8"
+dependencies = [
+    "chex",
+    "dm-control",
+    "flax",
+    "fprs",
+    "glfw",
+    "gymnasium",
+    "imageio",
+    "mujoco",
+    "mujoco-mjx",
+    "numpy",
+    "scipy",
+]
+
+[project.urls]
+Homepage = "https://github.com/Co-Evolve/moojoco-env"
+Repository = "https://github.com/Co-Evolve/moojoco-env"
