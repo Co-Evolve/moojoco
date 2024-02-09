@@ -10,7 +10,7 @@ with open('requirements.txt') as f:
     required = f.read().splitlines()
 
 setup(
-        name='moojoco_env',
+        name='moojoco-env',
         version='1.0.0',
         description='A unified framework for implementing and interfacing with MuJoCo and MuJoCo-XLA simulation '
                     'environments.',
