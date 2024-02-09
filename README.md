@@ -1,5 +1,5 @@
 <h1>
-  <a href="#"><img alt="MuJoCo" src="assets/banner.png" width="100%"/></a>
+  <a href="#"><img alt="moojoco-env" src="https://github.com/Co-Evolve/moojoco-env/blob/main/assets/banner.png?raw=true" width="100%"/></a>
 </h1>
 
 **moojoco-env** provides a unified framework for implementing and interfacing with MuJoCo and MuJoCo-XLA simulation
