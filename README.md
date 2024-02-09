@@ -47,7 +47,7 @@ MuJoCo (MJC) and MuJoCo-XLA (MJX).
 ## Examples
 
 For practical applications and demonstrations of **moojoco-env**, please refer to
-the [Bio-inspired Robotics Benchmark](https://github.com/Co-Evolve/brb),
+the [Bio-inspired Robotics Testbed](https://github.com/Co-Evolve/brt),
 which employs this framework extensively.
 
 ## Installation
