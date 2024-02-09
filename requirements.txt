@@ -1,7 +1,7 @@
 chex==0.1.85
 dm_control==1.0.16
 flax==0.7.5
-fprs @ git+https://github.com/Co-Evolve/fprs@2512dcf827510740b7a7a83093fdbf3752107b16
+fprs==1.0.0
 glfw==2.6.4
 gymnasium==0.29.1
 imageio==2.33.1
