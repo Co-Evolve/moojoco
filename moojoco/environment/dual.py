@@ -6,16 +6,16 @@ import chex
 import numpy as np
 from gymnasium.core import RenderFrame
 
-from moojoco_env.mjcf.arena import MJCFArena
-from moojoco_env.environment.base import (
+from moojoco.mjcf.arena import MJCFArena
+from moojoco.environment.base import (
     BaseEnvState,
     BaseEnvironment,
     MuJoCoEnvironmentConfiguration,
     SpaceType,
 )
-from moojoco_env.environment.mjc_env import MJCEnv
-from moojoco_env.environment.mjx_env import MJXEnv
-from moojoco_env.mjcf.morphology import MJCFMorphology
+from moojoco.environment.mjc_env import MJCEnv
+from moojoco.environment.mjx_env import MJXEnv
+from moojoco.mjcf.morphology import MJCFMorphology
 
 
 class DualMuJoCoEnvironment(BaseEnvironment):

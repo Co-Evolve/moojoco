@@ -1,8 +1,8 @@
 <h1>
-  <a href="#"><img alt="moojoco-env" src="https://github.com/Co-Evolve/moojoco-env/blob/main/assets/banner.png?raw=true" width="100%"/></a>
+  <a href="#"><img alt="moojoco-banner" src="https://github.com/Co-Evolve/moojoco-env/blob/main/assets/banner.png?raw=true" width="100%"/></a>
 </h1>
 
-**moojoco-env** provides a unified framework for implementing and interfacing with MuJoCo and MuJoCo-XLA simulation
+**moojoco** provides a unified framework for implementing and interfacing with MuJoCo and MuJoCo-XLA simulation
 environments.
 The main goal of this framework is to **unify** the development and interfaces of environments implemented in native
 MuJoCo (MJC) and MuJoCo-XLA (MJX).
@@ -15,11 +15,11 @@ MuJoCo (MJC) and MuJoCo-XLA (MJX).
       the [Framework for Parameterized Robot Specifications (FPRS)](https://github.com/Co-Evolve/fprs).
     * MJCFMorphologies follow a modular design, dividing the robot into distinct parts.
 * MJCFArena defines the arena in which the robot is places (i.e. all non-morphological structures).
-    * MJCFArena are reconfigurable via a `ArenaConfig[requirements.txt](requirements.txt)uration`
+    * MJCFArena are reconfigurable via a `ArenaConfiguration`
         * reconfigurable via a configuration
           [requirements.txt](requirements.txt)
 
-## Unified MJC and MJX environment in[README.md](README.md)terface
+## Unified MJC and MJX environment interface
 
 * Reconfigurable through an environment configuration
 * Functional programming
@@ -46,10 +46,10 @@ MuJoCo (MJC) and MuJoCo-XLA (MJX).
 
 ## Examples
 
-For practical applications and demonstrations of **moojoco-env**, please refer to
+For practical applications and demonstrations of **moojoco**, please refer to
 the [Bio-inspired Robotics Testbed](https://github.com/Co-Evolve/brt),
 which employs this framework extensively.
 
 ## Installation
 
-``pip install moojoco-env``
+``pip install moojoco``

@@ -10,12 +10,12 @@ with open('requirements.txt') as f:
     required = f.read().splitlines()
 
 setup(
-        name='moojoco-env',
-        version='1.0.2',
+        name='moojoco',
+        version='1.0.0',
         description='A unified framework for implementing and interfacing with MuJoCo and MuJoCo-XLA simulation '
                     'environments.',
         long_description=readme,
-        url='https://github.com/Co-Evolve/moojoco-env',
+        url='https://github.com/Co-Evolve/moojoco',
         license=license,
         packages=find_packages(exclude=('tests', 'docs')),
         install_requires=required

@@ -11,10 +11,10 @@ from flax import struct
 from gymnasium.core import RenderFrame
 from mujoco import mjx
 
-import moojoco_env.environment.mjx_spaces as mjx_spaces
-from moojoco_env.mjcf.arena import MJCFArena
-from moojoco_env.environment.renderer import MujocoRenderer
-from moojoco_env.mjcf.morphology import MJCFMorphology
+import moojoco.environment.mjx_spaces as mjx_spaces
+from moojoco.mjcf.arena import MJCFArena
+from moojoco.environment.renderer import MujocoRenderer
+from moojoco.mjcf.morphology import MJCFMorphology
 
 
 class MuJoCoEnvironmentConfiguration:

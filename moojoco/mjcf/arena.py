@@ -1,6 +1,6 @@
 from abc import ABC
 
-from moojoco_env.mjcf.component import MJCFRootComponent
+from moojoco.mjcf.component import MJCFRootComponent
 
 
 class ArenaConfiguration(ABC):

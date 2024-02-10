@@ -14,15 +14,15 @@ from flax import struct
 from gymnasium.core import ActType, RenderFrame
 from gymnasium.vector.utils import batch_space
 
-from moojoco_env.environment.base import (
+from moojoco.environment.base import (
     BaseEnvState,
     BaseEnvironment,
     BaseMuJoCoEnvironment,
     BaseObservable,
     MuJoCoEnvironmentConfiguration,
 )
-from moojoco_env.mjcf.arena import MJCFArena
-from moojoco_env.mjcf.morphology import MJCFMorphology
+from moojoco.mjcf.arena import MJCFArena
+from moojoco.mjcf.morphology import MJCFMorphology
 
 
 @struct.dataclass

@@ -3,8 +3,8 @@ requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "moojoco-env"
-version = "1.0.2"
+name = "moojoco"
+version = "1.0.0"
 authors = [
     { name = "Dries Marzougui", email = "dries.marzougui@gmail.com" },
 ]
@@ -40,5 +40,5 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/Co-Evolve/moojoco-env"
-Repository = "https://github.com/Co-Evolve/moojoco-env"
+Homepage = "https://github.com/Co-Evolve/moojoco"
+Repository = "https://github.com/Co-Evolve/moojoco"

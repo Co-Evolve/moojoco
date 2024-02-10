@@ -16,4 +16,4 @@ jobs:
       - name: Format code with Black
         uses: psf/black@stable
         with:
-          src: moojoco_env/
+          src: moojoco/

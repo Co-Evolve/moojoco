@@ -13,15 +13,15 @@ import numpy as np
 from flax import struct
 from mujoco import mjx
 
-import moojoco_env.environment.mjx_spaces as mjx_spaces
-from moojoco_env.environment.base import (
+import moojoco.environment.mjx_spaces as mjx_spaces
+from moojoco.environment.base import (
     BaseEnvState,
     BaseMuJoCoEnvironment,
     BaseObservable,
     MuJoCoEnvironmentConfiguration,
 )
-from moojoco_env.mjcf.arena import MJCFArena
-from moojoco_env.mjcf.morphology import MJCFMorphology
+from moojoco.mjcf.arena import MJCFArena
+from moojoco.mjcf.morphology import MJCFMorphology
 
 
 def mjx_get_model(
