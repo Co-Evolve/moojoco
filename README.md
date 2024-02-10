@@ -2,7 +2,7 @@
   <a href="#"><img alt="moojoco-banner" src="https://github.com/Co-Evolve/moojoco-env/blob/main/assets/banner.png?raw=true" width="100%"/></a>
 </h1>
 
-**moojoco** provides a unified framework for implementing and interfacing with MuJoCo and MuJoCo-XLA simulation
+**MooJoCo** provides a unified framework for implementing and interfacing with MuJoCo and MuJoCo-XLA simulation
 environments.
 The main goal of this framework is to **unify** the development and interfaces of environments implemented in native
 MuJoCo (MJC) and MuJoCo-XLA (MJX).
@@ -46,7 +46,7 @@ MuJoCo (MJC) and MuJoCo-XLA (MJX).
 
 ## Examples
 
-For practical applications and demonstrations of **moojoco**, please refer to
+For practical applications and demonstrations of **MooJoCo**, please refer to
 the [Bio-inspired Robotics Testbed](https://github.com/Co-Evolve/brt),
 which employs this framework extensively.
 
