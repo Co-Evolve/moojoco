@@ -280,11 +280,7 @@ class BaseMuJoCoEnvironment(BaseEnvironment, abc.ABC):
     def render(self, state: BaseEnvState) -> List[RenderFrame] | None:
         camera_ids = self.environment_configuration.camera_ids or [-1]
 
-        try:
-            mj_models, mj_datas = self._get_mj_models_and_datas_to_render(state=state)
-        except ValueError:
-            # Waiting on https://github.com/google-deepmind/mujoco/issues/1379
-            return None
+        mj_models, mj_datas = self._get_mj_models_and_datas_to_render(state=state)
 
         frames = []
         for i, (model, data) in enumerate(zip(mj_models, mj_datas)):
@@ -301,6 +297,7 @@ class BaseMuJoCoEnvironment(BaseEnvironment, abc.ABC):
                 return renderer.render(render_mode="human", camera_id=camera_ids[0])
             else:
                 for camera_id in camera_ids:
+                    renderer._model = model
                     renderer.update_scene(data=data, camera=camera_id)
                     frame = renderer.render()[:, :, ::-1]
                     frames.append(frame)
