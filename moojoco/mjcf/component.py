@@ -7,6 +7,7 @@ from typing import Dict, Optional, Union
 import numpy as np
 from dm_control import mjcf
 from dm_control.mjcf import export_with_assets
+from dm_control.mjcf.element import _AttachmentFrame
 from scipy.spatial.transform import Rotation
 
 
@@ -35,7 +36,7 @@ class MJCFRootComponent(ABC):
         position: Optional[np.ndarray] = None,
         euler: Optional[np.ndarray] = None,
         free_joint: bool = False,
-    ) -> None:
+    ) -> _AttachmentFrame:
         attachment_site = self.mjcf_body.add(
             "site",
             name=f"{self.base_name}_attachment_{other.base_name}",
