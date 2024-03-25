@@ -228,7 +228,7 @@ class MJXEnv(BaseMuJoCoEnvironment, ABC):
         raise NotImplementedError
 
     @abc.abstractmethod
-    def reset(self, rng: jnp.ndarray) -> MJXEnvState:
+    def reset(self, rng: jnp.ndarray, *args, **kwargs) -> MJXEnvState:
         raise NotImplementedError
 
     @abc.abstractmethod

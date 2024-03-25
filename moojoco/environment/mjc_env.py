@@ -144,7 +144,7 @@ class MJCEnv(BaseMuJoCoEnvironment, ABC):
         raise NotImplementedError
 
     @abc.abstractmethod
-    def reset(self, rng: np.random.RandomState) -> MJCEnvState:
+    def reset(self, rng: np.random.RandomState, *args, **kwargs) -> MJCEnvState:
         raise NotImplementedError
 
     @abc.abstractmethod
@@ -260,7 +260,9 @@ class ThreadedVectorMJCEnvWrapper(BaseEnvironment):
     def observation_space(self) -> gymnasium.spaces.Space:
         return self._observation_space
 
-    def step(self, state: VectorMJCEnvState, action: np.ndarray) -> VectorMJCEnvState:
+    def step(
+        self, state: VectorMJCEnvState, action: np.ndarray, *args, **kwargs
+    ) -> VectorMJCEnvState:
         self._states = list(
             self._pool.map(
                 lambda env, ste, act: env.step(state=ste, action=act),
@@ -271,7 +273,9 @@ class ThreadedVectorMJCEnvWrapper(BaseEnvironment):
         )
         return self._merged_states
 
-    def reset(self, rng: List[np.random.RandomState]) -> VectorMJCEnvState:
+    def reset(
+        self, rng: List[np.random.RandomState], *args, **kwargs
+    ) -> VectorMJCEnvState:
         self._states = list(
             self._pool.map(lambda env, sub_rng: env.reset(sub_rng), self._envs, rng)
         )
