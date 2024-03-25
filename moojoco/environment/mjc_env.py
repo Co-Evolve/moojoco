@@ -265,7 +265,7 @@ class ThreadedVectorMJCEnvWrapper(BaseEnvironment):
     ) -> VectorMJCEnvState:
         self._states = list(
             self._pool.map(
-                lambda env, ste, act: env.step(state=ste, action=act, *args, **kwargs),
+                lambda env, ste, act: env.step(ste, act, *args, **kwargs),
                 self._envs,
                 self._states,
                 action,
