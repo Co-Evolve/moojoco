@@ -12,8 +12,8 @@ from gymnasium.core import RenderFrame
 from mujoco import mjx
 
 import moojoco.environment.mjx_spaces as mjx_spaces
-from moojoco.mjcf.arena import MJCFArena
 from moojoco.environment.renderer import MujocoRenderer
+from moojoco.mjcf.arena import MJCFArena
 from moojoco.mjcf.morphology import MJCFMorphology
 
 
@@ -123,11 +123,15 @@ class BaseEnvironment(abc.ABC):
         raise NotImplementedError
 
     @abc.abstractmethod
-    def step(self, state: BaseEnvState, action: chex.Array) -> BaseEnvState:
+    def step(
+        self, state: BaseEnvState, action: chex.Array, *args, **kwargs
+    ) -> BaseEnvState:
         raise NotImplementedError
 
     @abc.abstractmethod
-    def reset(self, rng: np.random.RandomState | chex.PRNGKey) -> BaseEnvState:
+    def reset(
+        self, rng: np.random.RandomState | chex.PRNGKey, *args, **kwargs
+    ) -> BaseEnvState:
         raise NotImplementedError
 
     @abc.abstractmethod
@@ -225,7 +229,9 @@ class BaseMuJoCoEnvironment(BaseEnvironment, abc.ABC):
         mj_data = mujoco.MjData(mj_model)
         return mj_model, mj_data
 
-    def step(self, state: BaseEnvState, action: chex.Array) -> BaseEnvState:
+    def step(
+        self, state: BaseEnvState, action: chex.Array, *args, **kwargs
+    ) -> BaseEnvState:
         previous_state = state
         state = self._update_simulation(state=state, ctrl=action)
 
@@ -345,7 +351,9 @@ class BaseMuJoCoEnvironment(BaseEnvironment, abc.ABC):
         raise NotImplementedError
 
     @abc.abstractmethod
-    def reset(self, rng: np.random.RandomState | chex.PRNGKey) -> BaseEnvState:
+    def reset(
+        self, rng: np.random.RandomState | chex.PRNGKey, *args, **kwargs
+    ) -> BaseEnvState:
         raise NotImplementedError
 
     @abc.abstractmethod

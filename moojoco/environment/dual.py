@@ -60,10 +60,14 @@ class DualMuJoCoEnvironment(BaseEnvironment):
     def observation_space(self) -> SpaceType:
         return self._env.observation_space
 
-    def step(self, state: BaseEnvState, action: chex.Array) -> BaseEnvState:
+    def step(
+        self, state: BaseEnvState, action: chex.Array, *args, **kwargs
+    ) -> BaseEnvState:
         return self._env.step(state=state, action=action)
 
-    def reset(self, rng: np.random.RandomState | chex.PRNGKey) -> BaseEnvState:
+    def reset(
+        self, rng: np.random.RandomState | chex.PRNGKey, *args, **kwargs
+    ) -> BaseEnvState:
         return self._env.reset(rng=rng)
 
     def render(self, state: BaseEnvState) -> List[RenderFrame] | None:
