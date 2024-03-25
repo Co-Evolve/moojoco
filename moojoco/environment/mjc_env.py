@@ -265,7 +265,7 @@ class ThreadedVectorMJCEnvWrapper(BaseEnvironment):
     ) -> VectorMJCEnvState:
         self._states = list(
             self._pool.map(
-                lambda env, ste, act: env.step(state=ste, action=act),
+                lambda env, ste, act: env.step(state=ste, action=act, *args, **kwargs),
                 self._envs,
                 self._states,
                 action,
@@ -277,7 +277,7 @@ class ThreadedVectorMJCEnvWrapper(BaseEnvironment):
         self, rng: List[np.random.RandomState], *args, **kwargs
     ) -> VectorMJCEnvState:
         self._states = list(
-            self._pool.map(lambda env, sub_rng: env.reset(sub_rng), self._envs, rng)
+            self._pool.map(lambda env, sub_rng: env.reset(sub_rng, *args, **kwargs), self._envs, rng)
         )
 
         return self._merged_states
