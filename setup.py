@@ -11,7 +11,7 @@ with open('requirements.txt') as f:
 
 setup(
         name='moojoco',
-        version='1.0.6',
+        version='1.0.7',
         description='A unified framework for implementing and interfacing with MuJoCo and MuJoCo-XLA simulation '
                     'environments.',
         long_description=readme,
