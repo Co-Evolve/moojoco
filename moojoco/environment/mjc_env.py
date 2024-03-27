@@ -98,20 +98,13 @@ class MJCEnv(BaseMuJoCoEnvironment, ABC):
         return state.replace(observations=observations)
 
     def _update_simulation(self, state: MJCEnvState, ctrl: ActType) -> MJCEnvState:
-        mj_data = copy.deepcopy(state.mj_data)
-        mj_data.ctrl[:] = ctrl
+        state.mj_data.ctrl[:] = ctrl
         mujoco.mj_step(
             m=state.mj_model,
-            d=mj_data,
+            d=state.mj_data,
             nstep=self.environment_configuration.num_physics_steps_per_control_step,
         )
-        # As of MuJoCo 2.0, force-related quantities like cacc are not computed
-        # unless there's a force sensor in the model.
-        # See https://github.com/openai/gym/issues/1541
-        mujoco.mj_rnePostConstraint(state.mj_model, mj_data)
-
-        # noinspection PyUnresolvedReferences
-        return state.replace(mj_data=mj_data)
+        return state
 
     def _prepare_reset(self) -> Tuple[mujoco.MjModel, mujoco.MjData]:
         model = copy.deepcopy(self.frozen_mj_model)
