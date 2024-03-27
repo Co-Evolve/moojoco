@@ -107,9 +107,8 @@ class MJCEnv(BaseMuJoCoEnvironment, ABC):
         return state
 
     def _prepare_reset(self) -> Tuple[mujoco.MjModel, mujoco.MjData]:
-        model = copy.deepcopy(self.frozen_mj_model)
-        data = copy.deepcopy(self.frozen_mj_data)
-        return model, data
+        mujoco.mj_resetData(self.frozen_mj_model, self.frozen_mj_data)
+        return self.frozen_mj_model, self.frozen_mj_data
 
     def _finish_reset(
         self,
