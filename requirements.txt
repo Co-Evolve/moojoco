@@ -5,8 +5,8 @@ fprs==1.0.0
 glfw==2.6.4
 gymnasium==0.29.1
 imageio==2.33.1
-mujoco==3.1.4
-mujoco_mjx==3.1.4
+mujoco==3.1.5
+mujoco_mjx==3.1.5
 numpy==1.26.3
 scipy==1.12.0
 setuptools==69.0.3
