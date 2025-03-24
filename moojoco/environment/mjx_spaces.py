@@ -24,7 +24,7 @@ def _short_repr(arr: jnp.ndarray) -> str:
 
 class Space:
     """
-    Minimal jittable class for abstract gymnax space.
+    Minimal jittable class for abstract space.
     """
 
     def sample(self, rng: chex.PRNGKey) -> chex.Array:
@@ -36,8 +36,7 @@ class Space:
 
 class Discrete(Space):
     """
-    Minimal jittable class for discrete gymnax spaces.
-    TODO: For now this is a 1d space. Make composable for multi-discrete.
+    Minimal jittable class for discrete space.
     """
 
     def __init__(self, num_categories: int):
@@ -60,9 +59,39 @@ class Discrete(Space):
         return range_cond
 
 
+class MultiDiscrete(Space):
+    """
+    Minimal jittable class for MultiDiscrete space.
+    Assumes integer categories starting from 0
+    """
+
+    def __init__(self, num_categories_per_dim: Sequence[int]) -> None:
+        self.num_categories_per_dim = jnp.array(num_categories_per_dim).astype(int)
+        self.shape = self.num_categories_per_dim.shape
+
+    def sample(self, rng: chex.PRNGKey) -> chex.Array:
+        """Sample random action uniformly from set of categorical choices."""
+        return jax.random.randint(
+            rng,
+            shape=self.shape,
+            minval=jnp.zeros(self.shape),
+            maxval=self.num_categories_per_dim,
+        )
+
+    def __repr__(self) -> str:
+        """A string representation of this space.
+
+        The representation will include bounds, shape and dtype.
+
+        Returns:
+            A representation of the space
+        """
+        return f"MultiDiscrete({(_short_repr(self.num_categories_per_dim))}, {self.shape}, {self.dtype})"
+
+
 class Box(Space):
     """
-    Minimal jittable class for array-shaped gymnax spaces.
+    Minimal jittable class for array-shaped spaces.
     TODO: Add unboundedness - sampling from other distributions, etc.
     """
 
@@ -162,29 +191,3 @@ class Tuple(Space):
     def __repr__(self) -> str:
         """Gives a string representation of this space."""
         return "Tuple(" + ", ".join([str(s) for s in self.spaces]) + ")"
-
-
-def gymnax_space_to_gym_space(space: Space) -> gspc.Space:
-    """Convert Gymnax space to equivalent Gym space"""
-    if isinstance(space, Discrete):
-        return gspc.Discrete(space.n)
-    elif isinstance(space, Box):
-        low = (
-            float(space.low)
-            if (np.isscalar(space.low) or space.low.size == 1)
-            else np.array(space.low)
-        )
-        high = (
-            float(space.high)
-            if (np.isscalar(space.high) or space.low.size == 1)
-            else np.array(space.high)
-        )
-        return gspc.Box(low, high, space.shape, space.dtype)
-    elif isinstance(space, Dict):
-        return gspc.Dict({k: gymnax_space_to_gym_space(v) for k, v in space.spaces})
-    elif isinstance(space, Tuple):
-        return gspc.Tuple(space.spaces)
-    else:
-        raise NotImplementedError(
-            f"Conversion of {space.__class__.__name__} not supported"
-        )
